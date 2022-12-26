@@ -12,7 +12,12 @@ export default function Navbar() {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             PerioDicta
           </Typography>
-          <Button color="inherit">Github</Button>
+          <Button
+            color="inherit"
+            href="https://github.com/pranav377/periodicta"
+          >
+            Github
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
