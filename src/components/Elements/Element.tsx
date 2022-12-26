@@ -8,6 +8,7 @@ import InfoDrawer from "./InfoDrawer";
 import { memo } from "react";
 
 import "@google/model-viewer";
+import { CardActionArea } from "@mui/material";
 
 export interface ElementProps {
   name: string;
@@ -56,46 +57,52 @@ function ElementComponent(props: ElementProps) {
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
-        <Box
-          sx={{
-            height: 140,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundColor: ColorFromCategory(data.category),
-            position: "relative",
+        <CardActionArea
+          onClick={() => {
+            data.setInfoOpen(true);
           }}
         >
-          <Typography
+          <Box
             sx={{
-              position: "absolute",
-              top: 4,
-              left: 8,
-            }}
-            variant="h5"
-            component="div"
-          >
-            {data.number}
-          </Typography>
-          <Typography variant="h2" component="div">
-            {data.symbol}
-          </Typography>
-          <Typography variant="h5" component="div">
-            {data.name}
-          </Typography>
-        </Box>
-        <CardActions>
-          <Button
-            size="medium"
-            fullWidth
-            onClick={() => {
-              data.setInfoOpen(true);
+              height: 140,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              backgroundColor: ColorFromCategory(data.category),
+              position: "relative",
             }}
           >
-            View
-          </Button>
-        </CardActions>
+            <Typography
+              sx={{
+                position: "absolute",
+                top: 4,
+                left: 8,
+              }}
+              variant="h5"
+              component="div"
+            >
+              {data.number}
+            </Typography>
+            <Typography variant="h2" component="div">
+              {data.symbol}
+            </Typography>
+            <Typography variant="h5" component="div">
+              {data.name}
+            </Typography>
+          </Box>
+          <CardActions>
+            <Button
+              size="medium"
+              fullWidth
+              onClick={() => {
+                data.setInfoOpen(true);
+              }}
+            >
+              View
+            </Button>
+          </CardActions>
+        </CardActionArea>
       </Card>
 
       <InfoDrawer {...data} />
