@@ -22,6 +22,8 @@ export const useElement = (props: ElementProps) => {
   const matches = useMediaQuery(theme.breakpoints.up("lg"));
 
   const handleUserBackClick = useCallback(() => {
+    history.pushState(null, document.title, location.href);
+
     setInfoOpen(false);
   }, []);
 
